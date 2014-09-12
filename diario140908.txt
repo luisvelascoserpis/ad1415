@@ -1,0 +1,18 @@
+Instalamos:
+git
+
+Creamos en github el repositorio ad
+
+Clonamos en nuestro home:
+git clone https://github.com/luisvelascoserpis/ad.git
+
+Antes de confirmar (git commit ...) debemos haber configurado nuestro git:
+git config --global user.name luisvelasco
+git config --global user.email luis.velasco.serpis@gmail.com
+
+También nos avisa para establecer:
+git config --global push.default simple
+
+Desde el Bitnami LAMP: phpMyAdmin
+Creada base de datos dbprueba
+Creada tabla categoria e insertados 3 registros.
