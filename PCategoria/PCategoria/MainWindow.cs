@@ -2,6 +2,8 @@ using Gtk;
 using MySql.Data.MySqlClient;
 using System;
 
+using PCategoria;
+
 public partial class MainWindow: Gtk.Window
 {	
 	private MySqlConnection mySqlConnection;
@@ -12,12 +14,9 @@ public partial class MainWindow: Gtk.Window
 		Build ();
 
 		deleteAction.Sensitive = false;
+		editAction.Sensitive = false;
 
-		mySqlConnection = new MySqlConnection (
-			"DataSource=localhost;Database=dbprueba;User ID=root;Password=sistemas"
-		);
-
-		mySqlConnection.Open ();
+		mySqlConnection = App.Instance.MySqlConnection;
 
 		treeView.AppendColumn ("id", new CellRendererText (), "text", 0);
 		treeView.AppendColumn ("nombre", new CellRendererText (), "text", 1);
@@ -31,7 +30,9 @@ public partial class MainWindow: Gtk.Window
 
 	private void selectionChanged (object sender, EventArgs e) {
 		Console.WriteLine ("selectionChanged");
-		deleteAction.Sensitive = treeView.Selection.CountSelectedRows () > 0;
+		bool hasSelected = treeView.Selection.CountSelectedRows () > 0;
+		deleteAction.Sensitive = hasSelected;
+		editAction.Sensitive = hasSelected;
 	}
 
 	private void fillListStore() {
@@ -97,5 +98,13 @@ public partial class MainWindow: Gtk.Window
 		mySqlCommand.CommandText = deleteSql;
 
 		mySqlCommand.ExecuteNonQuery ();
+	}
+
+	protected void OnEditActionActivated (object sender, EventArgs e)
+	{
+		TreeIter treeIter;
+		treeView.Selection.GetSelected (out treeIter);
+		object id = listStore.GetValue (treeIter, 0);
+		CategoriaView categoriaView = new CategoriaView (id);
 	}
 }
