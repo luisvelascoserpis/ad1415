@@ -1,5 +1,5 @@
-using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 
 namespace PCategoria
 {
@@ -15,10 +15,10 @@ namespace PCategoria
 			get { return instance;}
 		}
 
-		private MySqlConnection mySqlConnection;
-		public MySqlConnection MySqlConnection {
-			get { return mySqlConnection;}
-			set { mySqlConnection = value;}
+		private IDbConnection dbConnection;
+		public IDbConnection DbConnection {
+			get { return dbConnection;}
+			set { dbConnection = value;}
 		}
 	}
 }

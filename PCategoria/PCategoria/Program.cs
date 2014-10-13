@@ -8,10 +8,10 @@ namespace PCategoria
 	{
 		public static void Main (string[] args)
 		{
-			App.Instance.MySqlConnection = new MySqlConnection (
+			App.Instance.DbConnection = new MySqlConnection (
 				"DataSource=localhost;Database=dbprueba;User ID=root;Password=sistemas"
 			);
-			App.Instance.MySqlConnection.Open ();
+			App.Instance.DbConnection.Open ();
 
 			Application.Init ();
 			MainWindow win = new MainWindow ();

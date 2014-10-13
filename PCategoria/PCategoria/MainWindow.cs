@@ -1,12 +1,12 @@
 using Gtk;
-using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 
 using PCategoria;
 
 public partial class MainWindow: Gtk.Window
 {	
-	private MySqlConnection mySqlConnection;
+	private IDbConnection dbConnection;
 	private ListStore listStore;
 
 	public MainWindow (): base (Gtk.WindowType.Toplevel)
@@ -16,7 +16,7 @@ public partial class MainWindow: Gtk.Window
 		deleteAction.Sensitive = false;
 		editAction.Sensitive = false;
 
-		mySqlConnection = App.Instance.MySqlConnection;
+		dbConnection = App.Instance.DbConnection;
 
 		treeView.AppendColumn ("id", new CellRendererText (), "text", 0);
 		treeView.AppendColumn ("nombre", new CellRendererText (), "text", 1);
@@ -36,21 +36,21 @@ public partial class MainWindow: Gtk.Window
 	}
 
 	private void fillListStore() {
-		MySqlCommand mySqlCommand = mySqlConnection.CreateCommand ();
-		mySqlCommand.CommandText = "select * from categoria";
+		IDbCommand dbCommand = dbConnection.CreateCommand ();
+		dbCommand.CommandText = "select * from categoria";
 
-		MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader ();
-		while (mySqlDataReader.Read()) {
-			object id = mySqlDataReader ["id"];
-			object nombre = mySqlDataReader ["nombre"];
+		IDataReader dataReader = dbCommand.ExecuteReader ();
+		while (dataReader.Read()) {
+			object id = dataReader ["id"];
+			object nombre = dataReader ["nombre"];
 			listStore.AppendValues (id, nombre);
 		}
-		mySqlDataReader.Close ();
+		dataReader.Close ();
 	}
 
 	protected void OnDeleteEvent (object sender, DeleteEventArgs a)
 	{
-		mySqlConnection.Close ();
+		dbConnection.Close ();
 		Application.Quit ();
 		a.RetVal = true;
 	}
@@ -62,10 +62,10 @@ public partial class MainWindow: Gtk.Window
 			"Nuevo " + DateTime.Now
 		);
 		Console.WriteLine ("insertSql={0}", insertSql);
-		MySqlCommand mySqlCommand = mySqlConnection.CreateCommand ();
-		mySqlCommand.CommandText = insertSql;
+		IDbCommand dbCommand = dbConnection.CreateCommand ();
+		dbCommand.CommandText = insertSql;
 
-		mySqlCommand.ExecuteNonQuery ();
+		dbCommand.ExecuteNonQuery ();
 	}
 
 	protected void OnRefreshActionActivated (object sender, EventArgs e)
@@ -94,10 +94,10 @@ public partial class MainWindow: Gtk.Window
 		treeView.Selection.GetSelected (out treeIter);
 		object id = listStore.GetValue (treeIter, 0);
 		string deleteSql = string.Format ("delete from categoria where id={0}", id);
-		MySqlCommand mySqlCommand = mySqlConnection.CreateCommand ();
-		mySqlCommand.CommandText = deleteSql;
+		IDbCommand dbCommand = dbConnection.CreateCommand ();
+		dbCommand.CommandText = deleteSql;
 
-		mySqlCommand.ExecuteNonQuery ();
+		dbCommand.ExecuteNonQuery ();
 	}
 
 	protected void OnEditActionActivated (object sender, EventArgs e)

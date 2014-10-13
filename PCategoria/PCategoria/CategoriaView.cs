@@ -1,5 +1,5 @@
-using MySql.Data.MySqlClient;
 using System;
+using System.Data;
 
 
 namespace PCategoria
@@ -13,33 +13,33 @@ namespace PCategoria
 
 		public CategoriaView(object id) : this() {
 			this.id = id;
-			MySqlCommand mySqlCommand = 
-				App.Instance.MySqlConnection.CreateCommand ();
-			mySqlCommand.CommandText = String.Format (
+			IDbCommand dbCommand = 
+				App.Instance.DbConnection.CreateCommand ();
+			dbCommand.CommandText = String.Format (
 				"select * from categoria where id={0}", id
 			);
 
-			MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader ();
-			mySqlDataReader.Read ();
+			IDataReader dataReader = dbCommand.ExecuteReader ();
+			dataReader.Read ();
 
-			entryNombre.Text = mySqlDataReader ["nombre"].ToString ();
+			entryNombre.Text = dataReader ["nombre"].ToString ();
 
-			mySqlDataReader.Close ();
+			dataReader.Close ();
 		}
 
 		protected void OnSaveActionActivated (object sender, EventArgs e)
 		{
-			MySqlCommand mySqlCommand = 
-				App.Instance.MySqlConnection.CreateCommand ();
-			mySqlCommand.CommandText = String.Format (
+			IDbCommand dbCommand = 
+				App.Instance.DbConnection.CreateCommand ();
+			dbCommand.CommandText = String.Format (
 				"update categoria set nombre=@nombre where id={0}", id
 			);
-			MySqlParameter mySqlParameter = mySqlCommand.CreateParameter ();
-			mySqlParameter.ParameterName = "nombre";
-			mySqlParameter.Value = entryNombre.Text;
-			mySqlCommand.Parameters.Add (mySqlParameter);
+			IDbDataParameter dbDataParameter = dbCommand.CreateParameter ();
+			dbDataParameter.ParameterName = "nombre";
+			dbDataParameter.Value = entryNombre.Text;
+			dbCommand.Parameters.Add (dbDataParameter);
 
-			mySqlCommand.ExecuteNonQuery ();
+			dbCommand.ExecuteNonQuery ();
 
 			Destroy ();
 		}
