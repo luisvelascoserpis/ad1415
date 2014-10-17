@@ -3,6 +3,7 @@ using System;
 using System.Data;
 
 using PCategoria;
+using SerpisAd;
 
 public partial class MainWindow: Gtk.Window
 {	

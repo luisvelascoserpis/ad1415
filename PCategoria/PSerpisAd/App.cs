@@ -1,7 +1,7 @@
 using System;
 using System.Data;
 
-namespace PCategoria
+namespace SerpisAd
 {
 	public class App
 	{
