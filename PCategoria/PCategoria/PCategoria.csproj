@@ -62,6 +62,9 @@
       <Package>mysql-connector-net</Package>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="PSerpisAd">
+      <HintPath>..\..\PSerpisAd\PSerpisAd\bin\Debug\PSerpisAd.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="gtk-gui\gui.stetic">
@@ -78,10 +81,4 @@
     <Compile Include="gtk-gui\PCategoria.CategoriaView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\PSerpisAd\PSerpisAd.csproj">
-      <Project>{C6B45028-623B-49F8-99E2-A6490F174E0D}</Project>
-      <Name>PSerpisAd</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

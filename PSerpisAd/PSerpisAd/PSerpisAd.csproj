@@ -5,9 +5,9 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.0</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{C6B45028-623B-49F8-99E2-A6490F174E0D}</ProjectGuid>
+    <ProjectGuid>{1C7AD7E2-320F-4238-B994-C3E770307B61}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>SerpisAd</RootNamespace>
+    <RootNamespace>PSerpisAd</RootNamespace>
     <AssemblyName>PSerpisAd</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
