@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PMyWidget", "PMyWidget\PMyWidget.csproj", "{AA8074D9-B3B6-486D-AD25-C349222421D1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AA8074D9-B3B6-486D-AD25-C349222421D1}.Debug|x86.ActiveCfg = Debug|x86
+		{AA8074D9-B3B6-486D-AD25-C349222421D1}.Debug|x86.Build.0 = Debug|x86
+		{AA8074D9-B3B6-486D-AD25-C349222421D1}.Release|x86.ActiveCfg = Release|x86
+		{AA8074D9-B3B6-486D-AD25-C349222421D1}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = PMyWidget\PMyWidget.csproj
+	EndGlobalSection
+EndGlobal

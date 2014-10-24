@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+    <target-gtk-version>2.12</target-gtk-version>
+  </configuration>
+  <import>
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <widget-library name="../bin/Debug/PNotebook.exe" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="MainWindow" design-size="439 300">
+    <action-group name="Default">
+      <action id="quitAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-quit</property>
+      </action>
+      <action id="refreshAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes" />
+        <property name="StockId">gtk-refresh</property>
+      </action>
+      <action id="ArchivoAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Archivo</property>
+        <property name="ShortLabel" translatable="yes">Archivo</property>
+      </action>
+      <action id="ArtculoAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Artículo</property>
+        <property name="ShortLabel" translatable="yes">Artículo</property>
+      </action>
+      <action id="CategoraAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Categoría</property>
+        <property name="ShortLabel" translatable="yes">Categoría</property>
+      </action>
+      <action id="Action">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">---</property>
+        <property name="ShortLabel" translatable="yes">---</property>
+      </action>
+    </action-group>
+    <property name="MemberName" />
+    <property name="Title" translatable="yes">MainWindow</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <signal name="DeleteEvent" handler="OnDeleteEvent" />
+    <child>
+      <widget class="Gtk.VBox" id="vbox1">
+        <property name="MemberName" />
+        <property name="Spacing">6</property>
+        <child>
+          <widget class="Gtk.MenuBar" id="menubar1">
+            <property name="MemberName" />
+            <node name="__gtksharp_150_Stetic_Editor_ActionMenuBar" type="Menubar">
+              <node type="Menu" action="ArchivoAction">
+                <node type="Menuitem" action="ArtculoAction" />
+                <node type="Menuitem" action="CategoraAction" />
+                <node type="Separator" />
+              </node>
+            </node>
+          </widget>
+          <packing>
+            <property name="Position">0</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Toolbar" id="toolbar1">
+            <property name="MemberName" />
+            <property name="ShowArrow">False</property>
+            <node name="__gtksharp_106_Stetic_Editor_ActionToolbar" type="Toolbar">
+              <node type="Toolitem" action="quitAction" />
+            </node>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Notebook" id="notebook">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="CurrentPage">-1</property>
+          </widget>
+          <packing>
+            <property name="Position">2</property>
+            <property name="AutoSize">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="button1">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextAndIcon</property>
+            <property name="Icon">stock:gtk-cancel Menu</property>
+            <property name="Label" translatable="yes">_Aceptar</property>
+            <property name="UseUnderline">True</property>
+          </widget>
+          <packing>
+            <property name="Position">3</property>
+            <property name="AutoSize">True</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>
