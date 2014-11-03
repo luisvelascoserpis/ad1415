@@ -18,9 +18,13 @@ public partial class MainWindow: Gtk.Window
 		};
 
 		notebook.SwitchPage += delegate {
-			Console.WriteLine("notebook.CurrentPage = {0}", notebook.CurrentPage);
+			onPageChanged();
 		};
 
+	}
+
+	private void onPageChanged() {
+		Console.WriteLine("onPageChanged notebook.CurrentPage = {0}", notebook.CurrentPage);
 	}
 
 	private void addPage (Widget widget, string label) {
@@ -29,10 +33,13 @@ public partial class MainWindow: Gtk.Window
 		Button button = new Button (new Image(Stock.Cancel, IconSize.Button) );
 		hBox.Add (button);
 		hBox.ShowAll ();
-		notebook.AppendPage (widget,  hBox);
+		notebook.CurrentPage = notebook.AppendPage (widget,  hBox);
 
 		button.Clicked += delegate {
 			widget.Destroy();
+			if (notebook.CurrentPage == -1)
+				onPageChanged();
+
 		};
 	}
 
