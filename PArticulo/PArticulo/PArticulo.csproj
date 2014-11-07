@@ -77,6 +77,12 @@
     <Compile Include="gtk-gui\MainWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ListArticuloView.cs" />
+    <Compile Include="gtk-gui\PArticulo.ListArticuloView.cs" />
+    <Compile Include="ListCategoriaView.cs" />
+    <Compile Include="gtk-gui\PArticulo.ListCategoriaView.cs" />
+    <Compile Include="ArticuloView.cs" />
+    <Compile Include="gtk-gui\PArticulo.ArticuloView.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

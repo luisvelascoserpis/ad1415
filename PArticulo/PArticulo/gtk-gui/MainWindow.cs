@@ -13,15 +13,9 @@ public partial class MainWindow
 	private global::Gtk.Action categoriaEditAction;
 	private global::Gtk.VBox vbox1;
 	private global::Gtk.Notebook notebook1;
-	private global::Gtk.VBox vbox2;
-	private global::Gtk.Toolbar toolbar1;
-	private global::Gtk.ScrolledWindow GtkScrolledWindow;
-	private global::Gtk.TreeView articuloTreeView;
+	private global::PArticulo.ListArticuloView listarticuloview1;
 	private global::Gtk.Label label1;
-	private global::Gtk.VBox vbox3;
-	private global::Gtk.Toolbar toolbar2;
-	private global::Gtk.ScrolledWindow GtkScrolledWindow1;
-	private global::Gtk.TreeView categoriaTreeView;
+	private global::PArticulo.ListCategoriaView listcategoriaview1;
 	private global::Gtk.Label label2;
 
 	protected virtual void Build ()
@@ -61,76 +55,32 @@ public partial class MainWindow
 		this.notebook1.Name = "notebook1";
 		this.notebook1.CurrentPage = 0;
 		// Container child notebook1.Gtk.Notebook+NotebookChild
-		this.vbox2 = new global::Gtk.VBox ();
-		this.vbox2.Name = "vbox2";
-		this.vbox2.Spacing = 6;
-		// Container child vbox2.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar1'><toolitem name='articuloRefreshAction' action='articuloRefreshAction'/><toolitem name='articuloAddAction' action='articuloAddAction'/><toolitem name='articuloDeleteAction' action='articuloDeleteAction'/><toolitem name='articuloEditAction' action='articuloEditAction'/></toolbar></ui>");
-		this.toolbar1 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar1")));
-		this.toolbar1.Name = "toolbar1";
-		this.toolbar1.ShowArrow = false;
-		this.vbox2.Add (this.toolbar1);
-		global::Gtk.Box.BoxChild w2 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.toolbar1]));
-		w2.Position = 0;
-		w2.Expand = false;
-		w2.Fill = false;
-		// Container child vbox2.Gtk.Box+BoxChild
-		this.GtkScrolledWindow = new global::Gtk.ScrolledWindow ();
-		this.GtkScrolledWindow.Name = "GtkScrolledWindow";
-		this.GtkScrolledWindow.ShadowType = ((global::Gtk.ShadowType)(1));
-		// Container child GtkScrolledWindow.Gtk.Container+ContainerChild
-		this.articuloTreeView = new global::Gtk.TreeView ();
-		this.articuloTreeView.CanFocus = true;
-		this.articuloTreeView.Name = "articuloTreeView";
-		this.GtkScrolledWindow.Add (this.articuloTreeView);
-		this.vbox2.Add (this.GtkScrolledWindow);
-		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox2 [this.GtkScrolledWindow]));
-		w4.Position = 1;
-		this.notebook1.Add (this.vbox2);
+		this.listarticuloview1 = new global::PArticulo.ListArticuloView ();
+		this.listarticuloview1.Events = ((global::Gdk.EventMask)(256));
+		this.listarticuloview1.Name = "listarticuloview1";
+		this.notebook1.Add (this.listarticuloview1);
 		// Notebook tab
 		this.label1 = new global::Gtk.Label ();
 		this.label1.Name = "label1";
 		this.label1.LabelProp = global::Mono.Unix.Catalog.GetString ("Artículo");
-		this.notebook1.SetTabLabel (this.vbox2, this.label1);
+		this.notebook1.SetTabLabel (this.listarticuloview1, this.label1);
 		this.label1.ShowAll ();
 		// Container child notebook1.Gtk.Notebook+NotebookChild
-		this.vbox3 = new global::Gtk.VBox ();
-		this.vbox3.Name = "vbox3";
-		this.vbox3.Spacing = 6;
-		// Container child vbox3.Gtk.Box+BoxChild
-		this.UIManager.AddUiFromString ("<ui><toolbar name='toolbar2'><toolitem name='categoriaRefreshAction' action='categoriaRefreshAction'/><toolitem name='categoriaAddAction' action='categoriaAddAction'/><toolitem name='categoriaDeleteAction' action='categoriaDeleteAction'/><toolitem name='categoriaEditAction' action='categoriaEditAction'/></toolbar></ui>");
-		this.toolbar2 = ((global::Gtk.Toolbar)(this.UIManager.GetWidget ("/toolbar2")));
-		this.toolbar2.Name = "toolbar2";
-		this.toolbar2.ShowArrow = false;
-		this.vbox3.Add (this.toolbar2);
-		global::Gtk.Box.BoxChild w6 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.toolbar2]));
-		w6.Position = 0;
-		w6.Expand = false;
-		w6.Fill = false;
-		// Container child vbox3.Gtk.Box+BoxChild
-		this.GtkScrolledWindow1 = new global::Gtk.ScrolledWindow ();
-		this.GtkScrolledWindow1.Name = "GtkScrolledWindow1";
-		this.GtkScrolledWindow1.ShadowType = ((global::Gtk.ShadowType)(1));
-		// Container child GtkScrolledWindow1.Gtk.Container+ContainerChild
-		this.categoriaTreeView = new global::Gtk.TreeView ();
-		this.categoriaTreeView.CanFocus = true;
-		this.categoriaTreeView.Name = "categoriaTreeView";
-		this.GtkScrolledWindow1.Add (this.categoriaTreeView);
-		this.vbox3.Add (this.GtkScrolledWindow1);
-		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.vbox3 [this.GtkScrolledWindow1]));
-		w8.Position = 1;
-		this.notebook1.Add (this.vbox3);
-		global::Gtk.Notebook.NotebookChild w9 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.vbox3]));
-		w9.Position = 1;
+		this.listcategoriaview1 = new global::PArticulo.ListCategoriaView ();
+		this.listcategoriaview1.Events = ((global::Gdk.EventMask)(256));
+		this.listcategoriaview1.Name = "listcategoriaview1";
+		this.notebook1.Add (this.listcategoriaview1);
+		global::Gtk.Notebook.NotebookChild w3 = ((global::Gtk.Notebook.NotebookChild)(this.notebook1 [this.listcategoriaview1]));
+		w3.Position = 1;
 		// Notebook tab
 		this.label2 = new global::Gtk.Label ();
 		this.label2.Name = "label2";
 		this.label2.LabelProp = global::Mono.Unix.Catalog.GetString ("Categoría");
-		this.notebook1.SetTabLabel (this.vbox3, this.label2);
+		this.notebook1.SetTabLabel (this.listcategoriaview1, this.label2);
 		this.label2.ShowAll ();
 		this.vbox1.Add (this.notebook1);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook1]));
-		w10.Position = 1;
+		global::Gtk.Box.BoxChild w4 = ((global::Gtk.Box.BoxChild)(this.vbox1 [this.notebook1]));
+		w4.Position = 1;
 		this.Add (this.vbox1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
