@@ -10,6 +10,7 @@ public partial class MainWindow: Gtk.Window
 		Build ();
 
 		new ComboBoxHelper (comboBox, (ulong)7, "select id, nombre from categoria");
+		//new ComboBoxHelper (comboBox, null, "select id, nombre from categoria");
 
 		propertiesAction.Activated += delegate {
 			Console.WriteLine("id={0}", comboBox.GetId());
